@@ -23,7 +23,7 @@ public class TransferService {
         Account receiver = accountRepository.findAccountById(idReceiver);
 
         BigDecimal senderNewAmount = sender.getAmount().subtract(amount);
-        BigDecimal receiverNewAmount = sender.getAmount().add(amount);
+        BigDecimal receiverNewAmount = receiver.getAmount().add(amount);
 
         accountRepository.changeAmount(idSender, senderNewAmount);
         accountRepository.changeAmount(idReceiver, receiverNewAmount);
